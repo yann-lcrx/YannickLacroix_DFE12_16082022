@@ -1,0 +1,12 @@
+@import "variables";
+
+.Dashboard {
+  h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    span {
+      color: $color-primary-100;
+      font-size: 3rem;
+    }
+  }
+}
