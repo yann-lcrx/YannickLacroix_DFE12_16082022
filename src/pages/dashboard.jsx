@@ -1,3 +1,5 @@
+import BarDataChart from "../components/barChart";
+import DailyActivity from "../components/barChart";
 import useFetch from "../services/fetch";
 import styles from "../styles/dashboard.module.scss";
 
@@ -40,6 +42,13 @@ function Dashboard() {
                 Bonjour <span>{personalData.userInfos.firstName}</span>
               </h1>
             ))}
+          {activityData && (
+            <BarDataChart
+              data={activityData.sessions}
+              data1={{ key: "kilogram", color: "#282d30" }}
+              data2={{ key: "calories", color: "#e60000" }}
+            />
+          )}
         </>
       )}
     </main>
