@@ -1,54 +1,42 @@
+import { useState } from "react";
+import { useEffect } from "react";
 import BarDataChart from "../components/barChart";
-import DailyActivity from "../components/barChart";
-import useFetch from "../services/fetch";
+import {
+  getActivity,
+  getAverageSessions,
+  getInfo,
+  getPerformance,
+} from "../services/apiManager";
 import styles from "../styles/dashboard.module.scss";
 
 function Dashboard() {
-  const {
-    data: personalData,
-    loading: personalDataIsLoading,
-    error: personalDataError,
-  } = useFetch("user/12");
+  const [info, setInfo] = useState({ userInfos: {} });
+  const [performance, setPerformance] = useState({});
+  const [averageSession, setAverageSession] = useState({});
+  const [activity, setActivity] = useState({});
 
-  const {
-    data: activityData,
-    loading: activityDataIsLoading,
-    error: activityDataError,
-  } = useFetch("user/12/activity");
-
-  const {
-    data: averageSessionData,
-    loading: averageSessionDataIsLoading,
-    error: averageSessionDataError,
-  } = useFetch("user/12/average-sessions");
-
-  const {
-    data: performanceData,
-    loading: performanceDataIsLoading,
-    error: performanceDataError,
-  } = useFetch("user/12/performance");
+  useEffect(() => {
+    getInfo(12).then((data) => setInfo(data));
+    getPerformance(12).then((data) => setPerformance(data));
+    getAverageSessions(12).then((data) => setAverageSession(data));
+    getActivity(12).then((data) => setActivity(data));
+  }, []);
 
   return (
     <main className={styles.Dashboard}>
-      {personalDataIsLoading ? (
+      {info.length === 0 ? (
         <p>Chargement</p>
       ) : (
         <>
-          {personalData &&
-            (personalDataError ? (
-              <p>{personalData}</p>
-            ) : (
-              <h1>
-                Bonjour <span>{personalData.userInfos.firstName}</span>
-              </h1>
-            ))}
-          {activityData && (
-            <BarDataChart
-              data={activityData.sessions}
-              data1={{ key: "kilogram", color: "#282d30" }}
-              data2={{ key: "calories", color: "#e60000" }}
-            />
-          )}
+          <h1>
+            Bonjour <span>{info.userInfos.firstName}</span>
+          </h1>
+
+          <BarDataChart
+            data={activity.sessions}
+            data1={{ key: "kilogram", color: "#282d30" }}
+            data2={{ key: "calories", color: "#e60000" }}
+          />
         </>
       )}
     </main>
