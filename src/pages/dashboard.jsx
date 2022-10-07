@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import BarDataChart from "../components/BarChart";
 import LineChartComponent from "../components/LineChart";
 import {
@@ -39,12 +38,10 @@ function Dashboard() {
             data2={{ key: "calories", color: "#e60000" }}
           />
 
-          {
-            <LineChartComponent
-              data={averageSession.sessions}
-              dataKey="sessionLength"
-            />
-          }
+          <LineChartComponent
+            data={averageSession.sessions}
+            dataKey="sessionLength"
+          />
         </>
       )}
     </main>

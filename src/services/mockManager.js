@@ -22,6 +22,10 @@ async function getPerformance(id) {
     (performance) => performance.data.userId === id
   );
 
+  if (!performance) {
+    throw Error("user not found");
+  }
+
   return new Performance(performance.data);
 }
 

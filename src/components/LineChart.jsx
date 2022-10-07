@@ -1,28 +1,30 @@
-import {
-  CartesianGrid,
-  Legend,
-  Line,
-  LineChart,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
+import { Line, LineChart, Text, Tooltip, XAxis, YAxis } from "recharts";
+import styles from "../styles/components/LineChart.module.scss";
 
-function LineChartComponent(data, dataKey) {
+function LineChartComponent({ data, dataKey }) {
   return (
     <LineChart
-      width={730}
-      height={250}
+      width={258}
+      height={263}
       data={data}
-      margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+      margin={{ top: 29, bottom: 16 }}
+      className={styles.lineChart}
+      style={{ backgroundColor: "#FF0000", borderRadius: "5px" }}
     >
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
-      <YAxis />
+      <Text textAnchor="start" verticalAnchor="start" x={0} y={0}>
+        Durée moyenne des sessions
+      </Text>
+      <XAxis dataKey="name" axisLine={false} tickLine={false} />
+      <YAxis hide />
       <Tooltip />
-      <Legend />
-      <Line type="monotone" dataKey={dataKey} stroke="#82ca9d" />
-      <Line type="monotone" dataKey={dataKey} stroke="#82ca9d" />
+      <Line
+        type="natural"
+        dataKey={dataKey}
+        dot={false}
+        activeDot={true}
+        strokeWidth={2}
+        stroke={"#fff"}
+      />
     </LineChart>
   );
 }
