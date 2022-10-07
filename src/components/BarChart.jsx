@@ -14,7 +14,7 @@ function BarDataChart({ data, data1, data2 }) {
     <BarChart width={835} height={320} barSize={7} data={data}>
       <CartesianGrid strokeDasharray="3 3" vertical={false} />
       <XAxis dataKey="day" />
-      <YAxis orientation="right" tickCount={3} color={"fff"} axisLine={false} />
+      <YAxis orientation="right" tickCount={3} axisLine={false} />
       <Tooltip
         contentStyle={{
           color: "white",

@@ -1,5 +1,4 @@
-import { Line, LineChart, Text, Tooltip, XAxis, YAxis } from "recharts";
-import styles from "../styles/components/LineChart.module.scss";
+import { Line, LineChart, Tooltip, XAxis, YAxis } from "recharts";
 
 function LineChartComponent({ data, dataKey }) {
   return (
@@ -8,13 +7,15 @@ function LineChartComponent({ data, dataKey }) {
       height={263}
       data={data}
       margin={{ top: 29, bottom: 16 }}
-      className={styles.lineChart}
       style={{ backgroundColor: "#FF0000", borderRadius: "5px" }}
     >
-      <Text textAnchor="start" verticalAnchor="start" x={0} y={0}>
-        Durée moyenne des sessions
-      </Text>
-      <XAxis dataKey="name" axisLine={false} tickLine={false} />
+      <XAxis
+        dataKey="day"
+        axisLine={false}
+        tickLine={false}
+        tickCount={7}
+        tick={{ fill: "#FFF", fontWeight: "500" }}
+      />
       <YAxis hide />
       <Tooltip />
       <Line

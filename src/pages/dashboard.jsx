@@ -12,13 +12,15 @@ import styles from "../styles/dashboard.module.scss";
 function Dashboard() {
   const [info, setInfo] = useState({ userInfos: {} });
   const [performance, setPerformance] = useState({ performance: {} });
-  const [averageSession, setAverageSession] = useState({ averageSessions: {} });
+  const [averageSessions, setAverageSessions] = useState({
+    averageSessions: {},
+  });
   const [activity, setActivity] = useState({ activity: {} });
 
   useEffect(() => {
     getInfo(12).then((data) => setInfo(data));
     getPerformance(12).then((data) => setPerformance(data));
-    getAverageSessions(12).then((data) => setAverageSession(data));
+    getAverageSessions(12).then((data) => setAverageSessions(data));
     getActivity(12).then((data) => setActivity(data));
   }, []);
 
@@ -39,7 +41,7 @@ function Dashboard() {
           />
 
           <LineChartComponent
-            data={averageSession.sessions}
+            data={averageSessions.data}
             dataKey="sessionLength"
           />
         </>

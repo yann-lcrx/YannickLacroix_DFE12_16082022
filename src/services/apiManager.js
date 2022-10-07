@@ -1,4 +1,5 @@
-import Performance from "./Performance";
+import AverageSessions from "../models/AverageSessions";
+import Performance from "../models/Performance";
 
 async function getInfo(id) {
   const result = await fetch(
@@ -33,7 +34,7 @@ async function getAverageSessions(id) {
   );
   const data = await result.json();
 
-  return data.data;
+  return new AverageSessions(data.data);
 }
 
 export { getInfo, getActivity, getAverageSessions, getPerformance };

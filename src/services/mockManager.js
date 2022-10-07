@@ -1,4 +1,4 @@
-import Performance from "./Performance";
+import Performance from "../models/Performance";
 
 async function fetchData() {
   const result = await fetch(`/mock.json`);
