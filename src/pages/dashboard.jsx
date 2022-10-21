@@ -15,7 +15,7 @@ function Dashboard() {
   const [averageSessions, setAverageSessions] = useState({
     averageSessions: {},
   });
-  const [activity, setActivity] = useState({ activity: {} });
+  const [activity, setActivity] = useState([]);
 
   useEffect(() => {
     getInfo(12).then((data) => setInfo(data));
@@ -35,7 +35,7 @@ function Dashboard() {
           </h1>
 
           <BarDataChart
-            data={activity.sessions}
+            data={activity.data}
             data1={{ key: "kilogram", color: "#282d30" }}
             data2={{ key: "calories", color: "#e60000" }}
           />

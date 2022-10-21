@@ -1,3 +1,4 @@
+import Activity from "../models/Activity";
 import AverageSessions from "../models/AverageSessions";
 import Performance from "../models/Performance";
 
@@ -25,7 +26,7 @@ async function getActivity(id) {
   );
   const data = await result.json();
 
-  return data.data;
+  return new Activity(data.data);
 }
 
 async function getAverageSessions(id) {
