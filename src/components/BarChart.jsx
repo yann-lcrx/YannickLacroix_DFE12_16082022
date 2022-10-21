@@ -3,11 +3,24 @@ import {
   BarChart,
   CartesianGrid,
   Legend,
-  Text,
   Tooltip,
   XAxis,
   YAxis,
 } from "recharts";
+import CustomTooltip from "./Tooltip";
+
+function renderTooltip({ active, payload, label }) {
+  if (active && payload && payload.length) {
+    return (
+      <CustomTooltip color="red">
+        <p>{`${payload[0].value}kg`}</p>
+        <p>{`${payload[1].value}Kcal`}</p>
+      </CustomTooltip>
+    );
+  }
+
+  return null;
+}
 
 function BarDataChart({ data, data1, data2 }) {
   return (
@@ -15,25 +28,13 @@ function BarDataChart({ data, data1, data2 }) {
       <CartesianGrid strokeDasharray="3 3" vertical={false} />
       <XAxis dataKey="day" />
       <YAxis orientation="right" tickCount={3} axisLine={false} />
-      <Tooltip
-        contentStyle={{
-          color: "white",
-          background: "#E60000",
-          fontSize: "7px",
-        }}
-        labelStyle={{
-          display: "none",
-        }}
-        itemStyle={{ color: "white", fontSize: "7px" }}
-        wrapperStyle={{ fontSize: "7px" }}
-      />
+      <Tooltip content={renderTooltip} />
       <Legend
         verticalAlign="top"
         align="right"
         iconType="circle"
         color="#7479BC"
       />
-      <Text>Activité quotidienne</Text>
       <Bar dataKey={data1.key} fill={data1.color} />
       <Bar dataKey={data2.key} fill={data2.color} />
     </BarChart>

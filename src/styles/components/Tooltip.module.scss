@@ -1,0 +1,23 @@
+.tooltip {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  * {
+    font-weight: 500;
+    font-size: 8px;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+  }
+}
+
+.red {
+  background-color: #e60000;
+  color: #fff;
+}
+
+.white {
+  background-color: #fff;
+  color: #000;
+}
