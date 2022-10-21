@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import BarDataChart from "../components/BarChart";
+import BarChartComponent from "../components/BarChart";
 import LineChartComponent from "../components/LineChart";
+import RadarChartComponent from "../components/RadarChart";
 import {
   getActivity,
   getAverageSessions,
@@ -11,7 +12,7 @@ import styles from "../styles/dashboard.module.scss";
 
 function Dashboard() {
   const [info, setInfo] = useState({ userInfos: {} });
-  const [performance, setPerformance] = useState({ performance: {} });
+  const [performance, setPerformance] = useState([]);
   const [averageSessions, setAverageSessions] = useState({
     averageSessions: {},
   });
@@ -34,7 +35,7 @@ function Dashboard() {
             Bonjour <span>{info.userInfos.firstName}</span>
           </h1>
 
-          <BarDataChart
+          <BarChartComponent
             data={activity.data}
             data1={{ key: "kilogram", color: "#282d30" }}
             data2={{ key: "calories", color: "#e60000" }}
@@ -42,6 +43,11 @@ function Dashboard() {
 
           <LineChartComponent
             data={averageSessions.data}
+            dataKey="sessionLength"
+          />
+
+          <RadarChartComponent
+            data={performance.data}
             dataKey="sessionLength"
           />
         </>

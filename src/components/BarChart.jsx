@@ -22,7 +22,7 @@ function renderTooltip({ active, payload, label }) {
   return null;
 }
 
-function BarDataChart({ data, data1, data2 }) {
+function BarChartComponent({ data, data1, data2 }) {
   return (
     <BarChart width={835} height={320} barSize={7} data={data}>
       <CartesianGrid strokeDasharray="3 3" vertical={false} />
@@ -41,4 +41,4 @@ function BarDataChart({ data, data1, data2 }) {
   );
 }
 
-export default BarDataChart;
+export default BarChartComponent;

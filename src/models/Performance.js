@@ -4,6 +4,7 @@ export default class Performance {
     data.data.forEach((performance) => {
       performance.kind = data.kind[performance.kind];
       this.data.push(performance);
+      console.log(this.data);
     });
   }
 }
