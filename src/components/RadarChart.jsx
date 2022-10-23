@@ -1,14 +1,6 @@
-import {
-  PolarAngleAxis,
-  PolarGrid,
-  PolarRadiusAxis,
-  Radar,
-  RadarChart,
-} from "recharts";
+import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts";
 
 function RadarChartComponent({ data }) {
-  const transparentRed = `rgba(2)`;
-
   return (
     <RadarChart
       outerRadius={90}
