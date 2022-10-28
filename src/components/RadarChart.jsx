@@ -3,7 +3,6 @@ import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts";
 function RadarChartComponent({ data }) {
   return (
     <RadarChart
-      outerRadius={90}
       width={258}
       height={263}
       data={data}
