@@ -1,4 +1,4 @@
-import { Legend, Line, LineChart, Tooltip, XAxis, YAxis } from "recharts";
+import { Legend, Line, LineChart, Tooltip, XAxis } from "recharts";
 import styles from "../styles/components/LineChart.module.scss";
 import CustomTooltip from "./Tooltip";
 

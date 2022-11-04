@@ -37,8 +37,10 @@ function Dashboard() {
         <div className={styles.graphSection}>
           <BarChartComponent
             data={activity.data}
-            data1={{ key: "kilogram", color: "#282d30" }}
-            data2={{ key: "calories", color: "#e60000" }}
+            bars={[
+              { key: "kilogram", color: "#282d30" },
+              { key: "calories", color: "#e60000" },
+            ]}
           />
 
           <div className={styles.secondaryInfo}>

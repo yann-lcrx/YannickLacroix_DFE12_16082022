@@ -2,7 +2,6 @@ import {
   Bar,
   BarChart,
   CartesianGrid,
-  Label,
   Legend,
   Tooltip,
   XAxis,
@@ -24,7 +23,7 @@ function renderTooltip({ active, payload, label }) {
   return null;
 }
 
-function BarChartComponent({ data, data1, data2 }) {
+function BarChartComponent({ data, bars }) {
   const renderLegend = () => {
     return (
       <ul className={styles.legend}>
@@ -63,8 +62,10 @@ function BarChartComponent({ data, data1, data2 }) {
         color="#7479BC"
         content={renderLegend}
       />
-      <Bar dataKey={data1.key} fill={data1.color} />
-      <Bar dataKey={data2.key} fill={data2.color} />
+
+      {bars.map((bar) => (
+        <Bar dataKey={bar.key} fill={bar.color} />
+      ))}
     </BarChart>
   );
 }
