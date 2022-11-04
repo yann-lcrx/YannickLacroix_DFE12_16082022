@@ -1,4 +1,11 @@
-import { Legend, Line, LineChart, Tooltip, XAxis } from "recharts";
+import {
+  Legend,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+} from "recharts";
 import styles from "../styles/components/LineChart.module.scss";
 import CustomTooltip from "./Tooltip";
 import PropTypes from "prop-types";
@@ -21,17 +28,14 @@ function renderLegend() {
 
 function LineChartComponent({ data, dataKey }) {
   return (
-    <div className={styles.lineChart}>
+    <ResponsiveContainer height={263}>
       <LineChart
-        width={229}
-        height={247}
         data={data}
         style={{
           backgroundColor: "#FF0000",
           borderRadius: "5px",
           display: "flex",
           justifyContent: "center",
-          padding: "0 14px 16px 14px",
         }}
       >
         <Legend content={renderLegend} verticalAlign="top" />
@@ -57,7 +61,7 @@ function LineChartComponent({ data, dataKey }) {
           stroke={"#fff"}
         />
       </LineChart>
-    </div>
+    </ResponsiveContainer>
   );
 }
 

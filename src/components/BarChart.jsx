@@ -3,6 +3,7 @@ import {
   BarChart,
   CartesianGrid,
   Legend,
+  ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
@@ -42,32 +43,32 @@ function BarChartComponent({ data, bars }) {
   };
 
   return (
-    <BarChart
-      width={835}
-      height={320}
-      barSize={7}
-      data={data}
-      style={{
-        backgroundColor: "#FBFBFB",
-        borderRadius: "5px",
-      }}
-    >
-      <CartesianGrid strokeDasharray="3 3" vertical={false} />
-      <XAxis dataKey="day" />
-      <YAxis orientation="right" tickCount={3} axisLine={false} />
-      <Tooltip content={renderTooltip} />
-      <Legend
-        verticalAlign="top"
-        align="right"
-        iconType="circle"
-        color="#7479BC"
-        content={renderLegend}
-      />
+    <ResponsiveContainer height={320}>
+      <BarChart
+        barSize={7}
+        data={data}
+        style={{
+          backgroundColor: "#FBFBFB",
+          borderRadius: "5px",
+        }}
+      >
+        <CartesianGrid strokeDasharray="3 3" vertical={false} />
+        <XAxis dataKey="day" />
+        <YAxis orientation="right" tickCount={3} axisLine={false} />
+        <Tooltip content={renderTooltip} />
+        <Legend
+          verticalAlign="top"
+          align="right"
+          iconType="circle"
+          color="#7479BC"
+          content={renderLegend}
+        />
 
-      {bars.map((bar) => (
-        <Bar dataKey={bar.key} fill={bar.color} key={bar.key} />
-      ))}
-    </BarChart>
+        {bars.map((bar) => (
+          <Bar dataKey={bar.key} fill={bar.color} key={bar.key} />
+        ))}
+      </BarChart>
+    </ResponsiveContainer>
   );
 }
 

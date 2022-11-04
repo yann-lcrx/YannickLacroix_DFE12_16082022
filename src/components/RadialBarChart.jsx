@@ -1,4 +1,9 @@
-import { Legend, RadialBar, RadialBarChart } from "recharts";
+import {
+  Legend,
+  RadialBar,
+  RadialBarChart,
+  ResponsiveContainer,
+} from "recharts";
 import styles from "../styles/components/RadialBarChart.module.scss";
 import PropTypes from "prop-types";
 
@@ -16,20 +21,20 @@ function RadialBarChartComponent({ data }) {
   };
 
   return (
-    <RadialBarChart
-      innerRadius={0}
-      outerRadius={159}
-      width={258}
-      height={263}
-      data={data}
-      barSize={10}
-      style={{ backgroundColor: "#fbfbfb" }}
-      startAngle={90}
-      endAngle={450}
-    >
-      <RadialBar dataKey="todayScore" legendType="none" label={renderLabel} />
-      <Legend content={renderLegend} verticalAlign="top" />
-    </RadialBarChart>
+    <ResponsiveContainer height={263}>
+      <RadialBarChart
+        innerRadius={0}
+        outerRadius={159}
+        data={data}
+        barSize={10}
+        style={{ backgroundColor: "#fbfbfb" }}
+        startAngle={90}
+        endAngle={450}
+      >
+        <RadialBar dataKey="todayScore" legendType="none" label={renderLabel} />
+        <Legend content={renderLegend} verticalAlign="top" />
+      </RadialBarChart>
+    </ResponsiveContainer>
   );
 }
 
