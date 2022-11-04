@@ -22,12 +22,15 @@ function LineChartComponent({ data, dataKey }) {
   return (
     <div className={styles.lineChart}>
       <LineChart
-        width={258}
-        height={263}
+        width={229}
+        height={247}
         data={data}
         style={{
           backgroundColor: "#FF0000",
           borderRadius: "5px",
+          display: "flex",
+          justifyContent: "center",
+          padding: "0 14px 16px 14px",
         }}
       >
         <Legend content={renderLegend} verticalAlign="top" />
@@ -36,9 +39,12 @@ function LineChartComponent({ data, dataKey }) {
           axisLine={false}
           tickLine={false}
           tickCount={7}
-          tick={{ fill: "#FFF", fontWeight: "500" }}
-        ></XAxis>
-        <YAxis hide />
+          tick={{
+            fill: "rgba(255,255,255,0.6)",
+            fontWeight: "500",
+            fontSize: "12px",
+          }}
+        />
         <Tooltip content={renderTooltip} />
 
         <Line

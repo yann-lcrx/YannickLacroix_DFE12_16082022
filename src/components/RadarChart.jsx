@@ -19,7 +19,7 @@ function RadarChartComponent({ data }) {
         type="category"
         axisLine={false}
       />
-      <Radar dataKey="value" fill="rgba(255,1,1,0.7)" fillOpacity={0.6} />
+      <Radar dataKey="value" fill="#ff0101" fillOpacity={0.7} />
     </RadarChart>
   );
 }

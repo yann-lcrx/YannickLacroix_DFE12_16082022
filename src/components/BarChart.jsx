@@ -24,7 +24,16 @@ function renderTooltip({ active, payload, label }) {
 
 function BarChartComponent({ data, data1, data2 }) {
   return (
-    <BarChart width={835} height={320} barSize={7} data={data}>
+    <BarChart
+      width={835}
+      height={320}
+      barSize={7}
+      data={data}
+      style={{
+        backgroundColor: "#FBFBFB",
+        borderRadius: "5px",
+      }}
+    >
       <CartesianGrid strokeDasharray="3 3" vertical={false} />
       <XAxis dataKey="day" />
       <YAxis orientation="right" tickCount={3} axisLine={false} />

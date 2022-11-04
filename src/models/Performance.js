@@ -4,7 +4,7 @@ const performanceKinds = [
   "Endurance",
   "Force",
   "Vitesse",
-  "Intensite",
+  "Intensité",
 ];
 
 export default class Performance {
@@ -14,5 +14,6 @@ export default class Performance {
       performance.kind = performanceKinds[performance.kind - 1];
       this.data.push(performance);
     });
+    this.data.reverse();
   }
 }
