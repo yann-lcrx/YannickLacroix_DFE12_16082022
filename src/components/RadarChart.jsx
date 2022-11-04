@@ -1,4 +1,5 @@
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts";
+import PropTypes from "prop-types";
 
 function RadarChartComponent({ data }) {
   return (
@@ -23,5 +24,14 @@ function RadarChartComponent({ data }) {
     </RadarChart>
   );
 }
+
+RadarChartComponent.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.number,
+      kind: PropTypes.string,
+    })
+  ),
+};
 
 export default RadarChartComponent;

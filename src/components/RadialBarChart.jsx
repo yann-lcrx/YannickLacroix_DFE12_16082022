@@ -1,5 +1,6 @@
 import { Legend, RadialBar, RadialBarChart } from "recharts";
 import styles from "../styles/components/RadialBarChart.module.scss";
+import PropTypes from "prop-types";
 
 const renderLabel = (props, context) => {
   if (props.payload !== undefined && props.payload.length > 0) {
@@ -31,5 +32,14 @@ function RadialBarChartComponent({ data }) {
     </RadialBarChart>
   );
 }
+
+RadialBarChartComponent.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      todayScore: PropTypes.number,
+      fill: PropTypes.string,
+    })
+  ),
+};
 
 export default RadialBarChartComponent;

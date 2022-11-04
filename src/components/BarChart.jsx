@@ -9,6 +9,7 @@ import {
 } from "recharts";
 import CustomTooltip from "./Tooltip";
 import styles from "../styles/components/BarChart.module.scss";
+import PropTypes from "prop-types";
 
 function renderTooltip({ active, payload, label }) {
   if (active && payload && payload.length) {
@@ -64,10 +65,26 @@ function BarChartComponent({ data, bars }) {
       />
 
       {bars.map((bar) => (
-        <Bar dataKey={bar.key} fill={bar.color} />
+        <Bar dataKey={bar.key} fill={bar.color} key={bar.key} />
       ))}
     </BarChart>
   );
 }
+
+BarChartComponent.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.number,
+      kilogram: PropTypes.number,
+      calories: PropTypes.number,
+    })
+  ),
+  bars: PropTypes.arrayOf(
+    PropTypes.shape({
+      key: PropTypes.string,
+      color: PropTypes.string,
+    })
+  ),
+};
 
 export default BarChartComponent;

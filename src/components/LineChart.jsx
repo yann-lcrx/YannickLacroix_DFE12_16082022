@@ -1,6 +1,7 @@
 import { Legend, Line, LineChart, Tooltip, XAxis } from "recharts";
 import styles from "../styles/components/LineChart.module.scss";
 import CustomTooltip from "./Tooltip";
+import PropTypes from "prop-types";
 
 function renderTooltip({ active, payload, label }) {
   if (active && payload && payload.length) {
@@ -59,5 +60,15 @@ function LineChartComponent({ data, dataKey }) {
     </div>
   );
 }
+
+LineChartComponent.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.string,
+      sessionLength: PropTypes.number,
+    })
+  ),
+  dataKey: PropTypes.string,
+};
 
 export default LineChartComponent;
