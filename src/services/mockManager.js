@@ -1,3 +1,5 @@
+import Activity from "../models/Activity";
+import AverageSessions from "../models/AverageSessions";
 import Performance from "../models/Performance";
 
 async function fetchData() {
@@ -38,7 +40,7 @@ async function getActivity(id) {
     throw Error("user not found");
   }
 
-  return activity.data;
+  return new Activity(activity.data);
 }
 
 async function getAverageSessions(id) {
@@ -50,7 +52,7 @@ async function getAverageSessions(id) {
     throw Error("user not found");
   }
 
-  return averageSessions.data;
+  return new AverageSessions(averageSessions.data);
 }
 
 export { getInfo, getActivity, getAverageSessions, getPerformance };
