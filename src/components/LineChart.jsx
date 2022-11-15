@@ -26,6 +26,11 @@ function renderLegend() {
   return <p className={styles.legend}>Durée moyenne des sessions</p>;
 }
 
+/**
+ * A wrapper around the recharts LineChart component.
+ * @param LineChartProps data to display (data), the type of data corresponding to the line (dataKey)
+ * @returns the layout of a line chart containing a single line
+ */
 function LineChartComponent({ data, dataKey }) {
   return (
     <ResponsiveContainer height={263}>

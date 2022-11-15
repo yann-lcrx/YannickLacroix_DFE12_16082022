@@ -7,6 +7,11 @@ import {
 } from "recharts";
 import PropTypes from "prop-types";
 
+/**
+ * A wrapper around the recharts radar chart.
+ * @param RadarChartProps data to display
+ * @returns the layout for an svg radar chart.
+ */
 function RadarChartComponent({ data }) {
   return (
     <ResponsiveContainer height={263}>

@@ -25,6 +25,11 @@ function renderTooltip({ active, payload, label }) {
   return null;
 }
 
+/**
+ * A wrapper around the BarChart component from recharts
+ * @param BarChartProps data to display (data), color and configuration of bars (bars)
+ * @returns the layout of a bar chart component containing one or several bars.
+ */
 function BarChartComponent({ data, bars }) {
   const renderLegend = () => {
     return (

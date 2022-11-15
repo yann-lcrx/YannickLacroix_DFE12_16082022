@@ -11,6 +11,10 @@ import {
 } from "../services/apiManager";
 import styles from "../styles/dashboard.module.scss";
 
+/**
+ * Dashboard page with all the user data charts
+ * @returns a React Dashboard page
+ */
 function Dashboard() {
   const [info, setInfo] = useState({ userInfos: {}, keyData: {} });
   const [performance, setPerformance] = useState([]);

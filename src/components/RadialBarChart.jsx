@@ -15,6 +15,11 @@ const renderLabel = (props, context) => {
   }
 };
 
+/**
+ * A wrapper around the recharts radial bar chart.
+ * @param RadialBarChartProps data to display
+ * @returns the layout of a radial bar chart with several categories.
+ */
 function RadialBarChartComponent({ data }) {
   const renderLegend = () => {
     return <p className={styles.legend}>Score</p>;
