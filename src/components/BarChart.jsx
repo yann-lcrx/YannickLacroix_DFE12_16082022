@@ -63,7 +63,19 @@ function BarChartComponent({ data, bars }) {
       >
         <CartesianGrid strokeDasharray="3 3" vertical={false} />
         <XAxis dataKey="day" />
-        <YAxis orientation="right" tickCount={3} axisLine={false} />
+        <YAxis
+          yAxisId="kilogram"
+          orientation="right"
+          tickCount={3}
+          axisLine={false}
+        />
+        <YAxis
+          yAxisId="calories"
+          orientation="left"
+          tickCount={3}
+          axisLine={false}
+          hide
+        />
         <Tooltip content={renderTooltip} />
         <Legend
           verticalAlign="top"
@@ -74,7 +86,12 @@ function BarChartComponent({ data, bars }) {
         />
 
         {bars.map((bar) => (
-          <Bar dataKey={bar.key} fill={bar.color} key={bar.key} />
+          <Bar
+            dataKey={bar.key}
+            fill={bar.color}
+            key={bar.key}
+            yAxisId={bar.key}
+          />
         ))}
       </BarChart>
     </ResponsiveContainer>

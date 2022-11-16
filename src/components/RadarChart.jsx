@@ -23,13 +23,14 @@ function RadarChartComponent({ data }) {
         }}
         margin={{ top: 6, bottom: 6, left: 12, right: 12 }}
       >
-        {/* <PolarGrid outerRadius={200} strokeWidth={2} stroke="red" /> */}
+        <PolarGrid strokeWidth={1} stroke="white" />
         <PolarAngleAxis
           dataKey="kind"
           stroke="white"
           style={{ fontWeight: "500", fontSize: "12px" }}
           type="category"
           tickLine={false}
+          tick={{ fontSize: "12px" }}
         />
         <Radar dataKey="value" fill="#ff0101" fillOpacity={0.7} />
       </RadarChart>

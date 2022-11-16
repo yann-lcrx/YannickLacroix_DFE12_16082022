@@ -61,7 +61,7 @@ function Dashboard() {
 
             <RadialBarChartComponent
               data={[
-                { todayScore: 1, fill: "transparent" },
+                { todayScore: 1, fill: "#fff" },
                 { ...info, fill: "#ff0000" },
               ]}
             />
