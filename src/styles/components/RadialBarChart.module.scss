@@ -1,6 +1,22 @@
 .legend {
-  margin-left: 30px;
-  margin-top: 24px;
   font-size: 15px;
   font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #74798c;
+  text-align: center;
+  gap: 8px;
+  line-height: 26px;
+
+  .percentage {
+    font-size: 26px;
+    font-weight: 700;
+    color: #282d30;
+  }
+
+  p {
+    max-width: 95px;
+  }
 }

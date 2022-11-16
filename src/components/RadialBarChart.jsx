@@ -7,14 +7,6 @@ import {
 import styles from "../styles/components/RadialBarChart.module.scss";
 import PropTypes from "prop-types";
 
-const renderLabel = (props, context) => {
-  if (props.payload !== undefined && props.payload.length > 0) {
-    return <div>Hello world</div>;
-  } else {
-    return "";
-  }
-};
-
 /**
  * A wrapper around the recharts radial bar chart.
  * @param RadialBarChartProps data to display
@@ -22,7 +14,6 @@ const renderLabel = (props, context) => {
  */
 function RadialBarChartComponent({ data }) {
   const renderLegend = (props) => {
-    console.log(props.payload);
     if (props) {
       return (
         <div className={styles.legend}>
@@ -38,15 +29,15 @@ function RadialBarChartComponent({ data }) {
   return (
     <ResponsiveContainer height={263}>
       <RadialBarChart
-        innerRadius={0}
+        innerRadius={12}
         outerRadius={159}
         data={data}
-        barSize={10}
+        barSize={12}
         style={{ backgroundColor: "#fbfbfb" }}
         startAngle={90}
         endAngle={450}
       >
-        <RadialBar dataKey="todayScore" legendType="none" label={renderLabel} />
+        <RadialBar dataKey="todayScore" legendType="none" />
         <Legend content={renderLegend} verticalAlign="middle" align="center" />
       </RadialBarChart>
     </ResponsiveContainer>

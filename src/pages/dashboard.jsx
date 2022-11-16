@@ -39,7 +39,9 @@ function Dashboard() {
       <h1>
         Bonjour <span>{info.userInfos.firstName}</span>
       </h1>
-      <p>Félicitations ! Vous avez explosé vos objectifs hier !</p>
+      <p className={styles.feedbackMessage}>
+        Félicitations ! Vous avez explosé vos objectifs hier !
+      </p>
 
       <div className={styles.userInfo}>
         <div className={styles.graphSection}>
@@ -61,7 +63,7 @@ function Dashboard() {
 
             <RadialBarChartComponent
               data={[
-                { todayScore: 1, fill: "#fff" },
+                { todayScore: 1, fill: "transparent" },
                 { ...info, fill: "#ff0000" },
               ]}
             />
