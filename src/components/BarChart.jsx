@@ -33,17 +33,20 @@ function renderTooltip({ active, payload, label }) {
 function BarChartComponent({ data, bars }) {
   const renderLegend = () => {
     return (
-      <ul className={styles.legend}>
-        <li>
-          <img src="/black-oval.svg" alt="" />
-          Poids (kg)
-        </li>
+      <div className={styles.header}>
+        <p className={styles.title}>Activité quotidienne</p>
+        <ul className={styles.legend}>
+          <li>
+            <img src="/black-oval.svg" alt="" />
+            Poids (kg)
+          </li>
 
-        <li>
-          <img src="/red-oval.svg" alt="" />
-          Calories brûlées (kCal)
-        </li>
-      </ul>
+          <li>
+            <img src="/red-oval.svg" alt="" />
+            Calories brûlées (kCal)
+          </li>
+        </ul>
+      </div>
     );
   };
 
@@ -56,6 +59,7 @@ function BarChartComponent({ data, bars }) {
           backgroundColor: "#FBFBFB",
           borderRadius: "5px",
         }}
+        margin={{ top: 24, left: 24, right: 24 }}
       >
         <CartesianGrid strokeDasharray="3 3" vertical={false} />
         <XAxis dataKey="day" />

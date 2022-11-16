@@ -16,7 +16,11 @@ import styles from "../styles/dashboard.module.scss";
  * @returns a React Dashboard page
  */
 function Dashboard() {
-  const [info, setInfo] = useState({ userInfos: {}, keyData: {} });
+  const [info, setInfo] = useState({
+    userInfos: {},
+    keyData: {},
+    todayScore: null,
+  });
   const [performance, setPerformance] = useState([]);
   const [averageSessions, setAverageSessions] = useState({
     averageSessions: {},

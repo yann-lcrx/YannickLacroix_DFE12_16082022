@@ -21,8 +21,18 @@ const renderLabel = (props, context) => {
  * @returns the layout of a radial bar chart with several categories.
  */
 function RadialBarChartComponent({ data }) {
-  const renderLegend = () => {
-    return <p className={styles.legend}>Score</p>;
+  const renderLegend = (props) => {
+    console.log(props.payload);
+    if (props) {
+      return (
+        <div className={styles.legend}>
+          <p className={styles.percentage}>
+            {props.payload[1].payload.todayScore * 100}%
+          </p>
+          <p>de votre objectif</p>
+        </div>
+      );
+    } else return;
   };
 
   return (
@@ -37,7 +47,7 @@ function RadialBarChartComponent({ data }) {
         endAngle={450}
       >
         <RadialBar dataKey="todayScore" legendType="none" label={renderLabel} />
-        <Legend content={renderLegend} verticalAlign="top" />
+        <Legend content={renderLegend} verticalAlign="middle" align="center" />
       </RadialBarChart>
     </ResponsiveContainer>
   );

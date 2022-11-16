@@ -1,3 +1,10 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 48px;
+  font-weight: 500;
+}
+
 .legend {
   list-style-type: none;
   color: #74798c;
@@ -5,11 +12,13 @@
   justify-content: end;
   white-space: nowrap;
   gap: 32px;
-  margin-right: 26px;
   li {
     font-size: 14px;
-    font-weight: 500;
     display: flex;
     gap: 10px;
   }
+}
+
+.title {
+  font-size: 15px;
 }

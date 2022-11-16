@@ -42,6 +42,7 @@ function LineChartComponent({ data, dataKey }) {
           display: "flex",
           justifyContent: "center",
         }}
+        margin={{ left: 14, right: 14, bottom: 16 }}
       >
         <Legend content={renderLegend} verticalAlign="top" />
         <XAxis
