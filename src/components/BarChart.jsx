@@ -91,6 +91,7 @@ function BarChartComponent({ data, bars }) {
             fill={bar.color}
             key={bar.key}
             yAxisId={bar.key}
+            radius={[6, 6, 6, 6]}
           />
         ))}
       </BarChart>

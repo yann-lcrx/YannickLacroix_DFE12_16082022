@@ -41,7 +41,7 @@ function RadialBarChartComponent({ data }) {
         barGap={0}
         barCategoryGap={0}
       >
-        <RadialBar dataKey="todayScore" legendType="none" />
+        <RadialBar dataKey="todayScore" legendType="none" cornerRadius={10} />
         <Legend content={renderLegend} verticalAlign="middle" align="center" />
       </RadialBarChart>
     </ResponsiveContainer>
