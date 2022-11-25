@@ -1,13 +1,26 @@
 .legend {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  align-self: flex-start;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 0px;
+  position: relative;
+  bottom: 16px;
+}
+
+.container {
+  width: 159px;
 }
 
 .score {
   font-size: 15px;
   font-weight: 500;
   display: flex;
-  width: 159px;
   background-color: #fff;
   height: 159px;
   border-radius: 159px;

@@ -17,11 +17,14 @@ function RadialBarChartComponent({ data }) {
     if (props) {
       return (
         <div className={styles.legend}>
-          <div className={styles.score}>
-            <p className={styles.percentage}>
-              {props.payload[1].payload.todayScore * 100}%
-            </p>
-            <p>de votre objectif</p>
+          <div className={styles.container}>
+            <p className={styles.title}>Score</p>
+            <div className={styles.score}>
+              <p className={styles.percentage}>
+                {props.payload[1].payload.todayScore * 100}%
+              </p>
+              <p>de votre objectif</p>
+            </div>
           </div>
         </div>
       );
