@@ -60,7 +60,7 @@ function BarChartComponent({ data, bars }) {
           backgroundColor: "#FBFBFB",
           borderRadius: "5px",
         }}
-        margin={{ top: 24, left: 24, right: 24 }}
+        margin={{ top: 24, left: 24, right: 24, bottom: 24 }}
       >
         <CartesianGrid strokeDasharray="3 3" vertical={false} height={183} />
         <XAxis dataKey="day" stroke="#9b9eac" tickMargin={16} />
