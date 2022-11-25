@@ -1,7 +1,16 @@
 .legend {
+  display: flex;
+  justify-content: center;
+}
+
+.score {
   font-size: 15px;
   font-weight: 500;
   display: flex;
+  width: 159px;
+  background-color: #fff;
+  height: 159px;
+  border-radius: 159px;
   justify-content: center;
   align-items: center;
   flex-direction: column;

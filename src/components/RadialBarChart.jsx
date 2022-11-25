@@ -17,10 +17,12 @@ function RadialBarChartComponent({ data }) {
     if (props) {
       return (
         <div className={styles.legend}>
-          <p className={styles.percentage}>
-            {props.payload[1].payload.todayScore * 100}%
-          </p>
-          <p>de votre objectif</p>
+          <div className={styles.score}>
+            <p className={styles.percentage}>
+              {props.payload[1].payload.todayScore * 100}%
+            </p>
+            <p>de votre objectif</p>
+          </div>
         </div>
       );
     } else return;
@@ -36,6 +38,8 @@ function RadialBarChartComponent({ data }) {
         style={{ backgroundColor: "#fbfbfb" }}
         startAngle={90}
         endAngle={450}
+        barGap={0}
+        barCategoryGap={0}
       >
         <RadialBar dataKey="todayScore" legendType="none" />
         <Legend content={renderLegend} verticalAlign="middle" align="center" />
