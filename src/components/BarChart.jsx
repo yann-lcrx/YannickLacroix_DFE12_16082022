@@ -53,6 +53,7 @@ function BarChartComponent({ data, bars }) {
   return (
     <ResponsiveContainer height={320}>
       <BarChart
+        barGap={8}
         barSize={7}
         data={data}
         style={{
@@ -61,13 +62,16 @@ function BarChartComponent({ data, bars }) {
         }}
         margin={{ top: 24, left: 24, right: 24 }}
       >
-        <CartesianGrid strokeDasharray="3 3" vertical={false} />
-        <XAxis dataKey="day" />
+        <CartesianGrid strokeDasharray="3 3" vertical={false} height={183} />
+        <XAxis dataKey="day" stroke="#9b9eac" tickMargin={16} />
         <YAxis
           yAxisId="kilogram"
           orientation="right"
           tickCount={3}
           axisLine={false}
+          tickLine={false}
+          tickMargin={45}
+          stroke="#9b9eac"
         />
         <YAxis
           yAxisId="calories"
@@ -91,7 +95,8 @@ function BarChartComponent({ data, bars }) {
             fill={bar.color}
             key={bar.key}
             yAxisId={bar.key}
-            radius={[6, 6, 6, 6]}
+            radius={[6, 6, 0, 0]}
+            barSize={7}
           />
         ))}
       </BarChart>
