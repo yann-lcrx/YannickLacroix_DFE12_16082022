@@ -1,0 +1,63 @@
+@import "variables";
+
+.AppLayout {
+  display: flex;
+  flex-direction: column;
+
+  header {
+    width: 100vw;
+    height: 91px;
+    background-color: $color-layout-background;
+    color: #fff;
+    display: flex;
+    gap: 149px;
+    align-items: center;
+    nav {
+      flex: 1;
+      margin-right: 89px;
+    }
+    ul {
+      display: flex;
+      justify-content: space-between;
+    }
+    li {
+      font-size: 24px;
+      font-weight: 500;
+    }
+  }
+
+  .horizontalView {
+    display: flex;
+    flex: 1;
+    gap: 107px;
+    > aside {
+      padding-top: 347px - $header-height;
+      padding-bottom: 114px;
+      background-color: $color-layout-background;
+      color: white;
+
+      width: 117px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+
+      > p {
+        transform: rotate(270deg);
+        white-space: nowrap;
+        font-size: 12px;
+      }
+
+      > nav ul {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  }
+
+  .view {
+    flex: 1;
+  }
+}
