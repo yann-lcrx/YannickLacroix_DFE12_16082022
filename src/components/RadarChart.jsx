@@ -14,7 +14,7 @@ import PropTypes from "prop-types";
  */
 function RadarChartComponent({ data }) {
   return (
-    <ResponsiveContainer height={263}>
+    <ResponsiveContainer height="100%">
       <RadarChart
         data={data}
         style={{

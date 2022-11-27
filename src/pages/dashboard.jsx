@@ -45,13 +45,15 @@ function Dashboard() {
 
       <div className={styles.userInfo}>
         <div className={styles.graphSection}>
-          <BarChartComponent
-            data={activity.data}
-            bars={[
-              { key: "kilogram", color: "#282d30" },
-              { key: "calories", color: "#e60000" },
-            ]}
-          />
+          <div className={styles.mainInfo}>
+            <BarChartComponent
+              data={activity.data}
+              bars={[
+                { key: "kilogram", color: "#282d30" },
+                { key: "calories", color: "#e60000" },
+              ]}
+            />
+          </div>
 
           <div className={styles.secondaryInfo}>
             <LineChartComponent

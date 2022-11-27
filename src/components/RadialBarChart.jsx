@@ -32,7 +32,7 @@ function RadialBarChartComponent({ data }) {
   };
 
   return (
-    <ResponsiveContainer height={263}>
+    <ResponsiveContainer height="100%">
       <RadialBarChart
         innerRadius={12}
         outerRadius={159}

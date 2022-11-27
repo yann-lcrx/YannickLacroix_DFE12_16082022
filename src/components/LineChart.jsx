@@ -33,7 +33,7 @@ function renderLegend() {
  */
 function LineChartComponent({ data, dataKey }) {
   return (
-    <ResponsiveContainer height={263}>
+    <ResponsiveContainer height="100%">
       <LineChart
         data={data}
         style={{

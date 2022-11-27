@@ -1,8 +1,10 @@
 @import "variables";
+@import "mixins";
 
 .AppLayout {
   display: flex;
   flex-direction: column;
+  height: 100%;
 
   header {
     width: 100vw;
@@ -12,6 +14,10 @@
     display: flex;
     gap: 149px;
     align-items: center;
+    img {
+      padding-left: 32px;
+    }
+
     nav {
       flex: 1;
       margin-right: 89px;
@@ -30,9 +36,10 @@
     display: flex;
     flex: 1;
     gap: 107px;
+    @include tablet {
+      gap: 16px;
+    }
     > aside {
-      padding-top: 347px - $header-height;
-      padding-bottom: 114px;
       background-color: $color-layout-background;
       color: white;
 
@@ -41,8 +48,15 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: space-between;
+      gap: 164px;
 
+      padding-top: 347px - $header-height;
+
+      @include tablet {
+        width: 88px;
+        gap: 128px;
+        padding-top: 219px - $header-height;
+      }
       > p {
         transform: rotate(270deg);
         white-space: nowrap;
@@ -59,5 +73,9 @@
 
   .view {
     flex: 1;
+    padding-top: 64px;
+    @include tablet {
+      padding-top: 32px;
+    }
   }
 }
