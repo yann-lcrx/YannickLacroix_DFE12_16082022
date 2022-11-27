@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import BarChartComponent from "../components/BarChart";
+import DataCard from "../components/DataCard";
 import LineChartComponent from "../components/LineChart";
 import RadarChartComponent from "../components/RadarChart";
 import RadialBarChartComponent from "../components/RadialBarChart";
@@ -18,7 +19,12 @@ import styles from "../styles/dashboard.module.scss";
 function Dashboard() {
   const [info, setInfo] = useState({
     userInfos: {},
-    keyData: {},
+    keyData: {
+      proteinCount: "",
+      lipidCount: "",
+      carbohydrateCount: "",
+      calorieCount: "",
+    },
     todayScore: null,
   });
   const [performance, setPerformance] = useState([]);
@@ -73,34 +79,30 @@ function Dashboard() {
         </div>
 
         <aside className={styles.nutritionData}>
-          <div className={styles.dataCard}>
-            <img src="/calories-icon.svg" alt="calories" />
-            <div className={styles.dataCard__data}>
-              <p className={styles.figure}>{info.keyData.calorieCount}kCal</p>
-              <p className={styles.nutrient}>Calories</p>
-            </div>
-          </div>
-          <div className={styles.dataCard}>
-            <img src="/protein-icon.svg" alt="protéines" />
-            <div>
-              <p className={styles.figure}>{info.keyData.proteinCount}g</p>
-              <p className={styles.nutrient}>Protéines</p>
-            </div>
-          </div>
-          <div className={styles.dataCard}>
-            <img src="/carbs-icon.svg" alt="glucides" />
-            <div>
-              <p className={styles.figure}>{info.keyData.carbohydrateCount}g</p>
-              <p className={styles.nutrient}>Glucides</p>
-            </div>
-          </div>
-          <div className={styles.dataCard}>
-            <img src="/fat-icon.svg" alt="lipides" />
-            <div>
-              <p className={styles.figure}>{info.keyData.lipidCount}g</p>
-              <p className={styles.nutrient}>Lipides</p>
-            </div>
-          </div>
+          <DataCard
+            figure={info.keyData.calorieCount}
+            unit="KCal"
+            type="Calories"
+            iconSource="/calories-icon.svg"
+          />
+          <DataCard
+            figure={info.keyData.proteinCount}
+            unit="g"
+            type="Protéines"
+            iconSource="/protein-icon.svg"
+          />
+          <DataCard
+            figure={info.keyData.carbohydrateCount}
+            unit="g"
+            type="Glucides"
+            iconSource="/carbs-icon.svg"
+          />
+          <DataCard
+            figure={info.keyData.lipidCount}
+            unit="g"
+            type="Lipides"
+            iconSource="/fat-icon.svg"
+          />
         </aside>
       </div>
     </main>
