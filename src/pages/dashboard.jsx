@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import BarChartComponent from "../components/BarChart";
 import DataCard from "../components/DataCard";
 import LineChartComponent from "../components/LineChart";
@@ -33,12 +34,17 @@ function Dashboard() {
   });
   const [activity, setActivity] = useState([]);
 
+  const { userId } = useParams();
+
   useEffect(() => {
-    getInfo(12).then((data) => setInfo(data));
-    getPerformance(12).then((data) => setPerformance(data));
-    getAverageSessions(12).then((data) => setAverageSessions(data));
-    getActivity(12).then((data) => setActivity(data));
-  }, []);
+    if (userId) {
+      const parsedUserId = parseInt(userId);
+      getInfo(parsedUserId).then((data) => setInfo(data));
+      getPerformance(parsedUserId).then((data) => setPerformance(data));
+      getAverageSessions(parsedUserId).then((data) => setAverageSessions(data));
+      getActivity(parsedUserId).then((data) => setActivity(data));
+    }
+  }, [userId]);
 
   return (
     <main className={styles.Dashboard}>

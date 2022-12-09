@@ -1,12 +1,15 @@
 import "./App.scss";
 import AppLayout from "./AppLayout";
-import Dashboard from "./pages/dashboard";
+import AppRouter from "./router";
+import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   return (
-    <AppLayout>
-      <Dashboard />
-    </AppLayout>
+    <Router>
+      <AppLayout>
+        <AppRouter />
+      </AppLayout>
+    </Router>
   );
 }
 

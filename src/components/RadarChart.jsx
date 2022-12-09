@@ -23,7 +23,7 @@ function RadarChartComponent({ data }) {
         }}
         margin={{ top: 6, bottom: 6, left: 39, right: 39 }}
       >
-        <PolarGrid strokeWidth={1} stroke="white" />
+        <PolarGrid strokeWidth={1} stroke="white" radialLines={false} />
         <PolarAngleAxis
           dataKey="kind"
           stroke="white"
