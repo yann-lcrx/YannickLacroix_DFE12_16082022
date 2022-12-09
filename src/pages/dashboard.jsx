@@ -38,11 +38,10 @@ function Dashboard() {
 
   useEffect(() => {
     if (userId) {
-      const parsedUserId = parseInt(userId);
-      getInfo(parsedUserId).then((data) => setInfo(data));
-      getPerformance(parsedUserId).then((data) => setPerformance(data));
-      getAverageSessions(parsedUserId).then((data) => setAverageSessions(data));
-      getActivity(parsedUserId).then((data) => setActivity(data));
+      getInfo(userId).then((data) => setInfo(data));
+      getPerformance(userId).then((data) => setPerformance(data));
+      getAverageSessions(userId).then((data) => setAverageSessions(data));
+      getActivity(userId).then((data) => setActivity(data));
     }
   }, [userId]);
 
