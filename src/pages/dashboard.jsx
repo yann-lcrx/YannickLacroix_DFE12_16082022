@@ -82,8 +82,9 @@ function Dashboard() {
             <h1>
               Bonjour <span>{info.userInfos.firstName}</span>
             </h1>
-            <p className={styles.feedbackMessage}>
-              Félicitations ! Vous avez explosé vos objectifs hier !
+            <p>
+              Félicitations ! Vous avez explosé vos objectifs hier !{" "}
+              <img src="emoji-clap.png" alt="emoji applaudissement" />
             </p>
           </div>
 

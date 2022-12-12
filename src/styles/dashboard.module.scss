@@ -81,5 +81,8 @@
     @include tablet {
       gap: $mu;
     }
+    img {
+      height: 1rem;
+    }
   }
 }
