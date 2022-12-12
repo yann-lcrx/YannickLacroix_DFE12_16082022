@@ -7,6 +7,7 @@
 4. Run `npm i` to install all necessary dependencies.
 5. Use `npm run start` to start the development server.
    Note: to view the page, make sure the request params are equal to one of the users' id!
+   Ex: `localhost:9999/18`
 6. Happy coding!
 
 # Working on the project

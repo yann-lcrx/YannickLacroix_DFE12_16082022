@@ -5,6 +5,7 @@ function AppRouter() {
   return (
     <Routes>
       <Route path="/:userId" element={<Dashboard />} />
+      <Route path="/" element={<Dashboard />} />
     </Routes>
   );
 }

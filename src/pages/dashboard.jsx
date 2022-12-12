@@ -19,7 +19,9 @@ import styles from "../styles/dashboard.module.scss";
  */
 function Dashboard() {
   const [info, setInfo] = useState({
-    userInfos: {},
+    userInfos: {
+      firstName: "",
+    },
     keyData: {
       proteinCount: "",
       lipidCount: "",
@@ -33,83 +35,114 @@ function Dashboard() {
     averageSessions: {},
   });
   const [activity, setActivity] = useState([]);
+  const [isLoading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const { userId } = useParams();
 
   useEffect(() => {
     if (userId) {
-      getInfo(userId).then((data) => setInfo(data));
-      getPerformance(userId).then((data) => setPerformance(data));
-      getAverageSessions(userId).then((data) => setAverageSessions(data));
-      getActivity(userId).then((data) => setActivity(data));
+      setLoading(true);
+      setError("");
+
+      Promise.all([
+        getInfo(userId),
+        getPerformance(userId),
+        getAverageSessions(userId),
+        getActivity(userId),
+      ])
+        .then((values) => {
+          setInfo(values[0]);
+          setPerformance(values[1]);
+          setAverageSessions(values[2]);
+          setActivity(values[3]);
+          setLoading(false);
+        })
+        .catch(() => {
+          setError(
+            "Nous n'avons pas pu récupérer les informations de l'utilisateur. Veuillez vérifier vos informations ou réessayer plus tard."
+          );
+        });
+    } else {
+      setError(
+        "L'utilisateur que vous avez saisi n'existe pas. Veuillez vérifier vos informations et réessayer."
+      );
     }
   }, [userId]);
 
   return (
     <main className={styles.Dashboard}>
-      <h1>
-        Bonjour <span>{info.userInfos.firstName}</span>
-      </h1>
-      <p className={styles.feedbackMessage}>
-        Félicitations ! Vous avez explosé vos objectifs hier !
-      </p>
+      {isLoading ? (
+        <p>Chargement...</p>
+      ) : error.length ? (
+        <p>{error}</p>
+      ) : (
+        <>
+          <h1>
+            Bonjour <span>{info.userInfos.firstName}</span>
+          </h1>
+          <p className={styles.feedbackMessage}>
+            Félicitations ! Vous avez explosé vos objectifs hier !
+          </p>
 
-      <div className={styles.userInfo}>
-        <div className={styles.graphSection}>
-          <div className={styles.mainInfo}>
-            <BarChartComponent
-              data={activity.data}
-              bars={[
-                { key: "kilogram", color: "#282d30" },
-                { key: "calories", color: "#e60000" },
-              ]}
-            />
+          <div className={styles.userInfo}>
+            <div className={styles.graphSection}>
+              <div className={styles.mainInfo}>
+                <BarChartComponent
+                  data={activity.data}
+                  bars={[
+                    { key: "kilogram", color: "#282d30" },
+                    { key: "calories", color: "#e60000" },
+                  ]}
+                />
+              </div>
+
+              <div className={styles.secondaryInfo}>
+                <LineChartComponent
+                  data={averageSessions.data}
+                  dataKey="sessionLength"
+                />
+
+                <RadarChartComponent data={performance.data} />
+
+                <RadialBarChartComponent
+                  data={[
+                    { todayScore: 1, fill: "transparent" },
+                    { ...info, fill: "#ff0000" },
+                  ]}
+                />
+              </div>
+            </div>
+
+            <aside className={styles.nutritionData}>
+              <DataCard
+                figure={info.keyData.calorieCount}
+                unit="KCal"
+                type="Calories"
+                iconSource="/calories-icon.svg"
+              />
+              <DataCard
+                figure={info.keyData.proteinCount}
+                unit="g"
+                type="Protéines"
+                iconSource="/protein-icon.svg"
+              />
+              <DataCard
+                figure={info.keyData.carbohydrateCount}
+                unit="g"
+                type="Glucides"
+                iconSource="/carbs-icon.svg"
+              />
+              <DataCard
+                figure={info.keyData.lipidCount}
+                unit="g"
+                type="Lipides"
+                iconSource="/fat-icon.svg"
+              />
+            </aside>
           </div>
-
-          <div className={styles.secondaryInfo}>
-            <LineChartComponent
-              data={averageSessions.data}
-              dataKey="sessionLength"
-            />
-
-            <RadarChartComponent data={performance.data} />
-
-            <RadialBarChartComponent
-              data={[
-                { todayScore: 1, fill: "transparent" },
-                { ...info, fill: "#ff0000" },
-              ]}
-            />
-          </div>
-        </div>
-
-        <aside className={styles.nutritionData}>
-          <DataCard
-            figure={info.keyData.calorieCount}
-            unit="KCal"
-            type="Calories"
-            iconSource="/calories-icon.svg"
-          />
-          <DataCard
-            figure={info.keyData.proteinCount}
-            unit="g"
-            type="Protéines"
-            iconSource="/protein-icon.svg"
-          />
-          <DataCard
-            figure={info.keyData.carbohydrateCount}
-            unit="g"
-            type="Glucides"
-            iconSource="/carbs-icon.svg"
-          />
-          <DataCard
-            figure={info.keyData.lipidCount}
-            unit="g"
-            type="Lipides"
-            iconSource="/fat-icon.svg"
-          />
-        </aside>
-      </div>
+        </>
+      )}
     </main>
   );
 }
