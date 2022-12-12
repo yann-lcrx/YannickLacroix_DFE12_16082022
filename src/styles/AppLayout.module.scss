@@ -12,15 +12,15 @@
     background-color: $color-layout-background;
     color: #fff;
     display: flex;
-    gap: 149px;
+    gap: 19 * $mu;
     align-items: center;
     img {
-      padding-left: 32px;
+      padding-left: 4 * $mu;
     }
 
     nav {
       flex: 1;
-      margin-right: 89px;
+      margin-right: 11 * $mu;
     }
     ul {
       display: flex;
@@ -35,9 +35,9 @@
   .horizontalView {
     display: flex;
     flex: 1;
-    gap: 107px;
+    gap: 13 * $mu;
     @include tablet {
-      gap: 16px;
+      gap: 2 * $mu;
     }
     > aside {
       background-color: $color-layout-background;
@@ -48,13 +48,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 164px;
+      gap: 20 * $mu;
 
       padding-top: 347px - $header-height;
 
       @include tablet {
         width: 88px;
-        gap: 128px;
+        gap: 16 * $mu;
         padding-top: 219px - $header-height;
       }
       > p {
@@ -66,16 +66,16 @@
       > nav ul {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 2.5 * $mu;
       }
     }
   }
 
   .view {
     flex: 1;
-    padding-top: 64px;
+    padding-top: 7 * $mu;
     @include tablet {
-      padding-top: 32px;
+      padding-top: 4 * $mu;
     }
   }
 }

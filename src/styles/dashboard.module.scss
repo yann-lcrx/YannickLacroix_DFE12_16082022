@@ -2,13 +2,12 @@
 @import "mixins";
 
 .Dashboard {
-  padding: 16px;
-
-  .feedbackMessage {
-    margin-bottom: 76px;
-    @include tablet {
-      margin-bottom: 48px;
-    }
+  padding: 2 * $mu;
+  display: flex;
+  flex-direction: column;
+  gap: 9 * $mu;
+  @include tablet {
+    gap: 5 * $mu;
   }
 
   h1 {
@@ -22,21 +21,21 @@
 
   .userInfo {
     display: flex;
-    gap: 32px;
+    gap: 4 * $mu;
     @include tablet {
-      gap: 24px;
+      gap: 3 * $mu;
     }
   }
 
   .graphSection {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 3.5 * $mu;
     width: 60%;
     max-width: 835px;
     flex: 1;
     @include tablet {
-      gap: 12px;
+      gap: 1.5 * $mu;
     }
   }
 
@@ -59,10 +58,10 @@
     width: 100%;
     height: 263px;
     max-height: 263px;
-    gap: 30px;
+    gap: 4 * $mu;
     @include tablet {
       flex: 0.82;
-      gap: 16px;
+      gap: 2 * $mu;
     }
   }
 
@@ -70,5 +69,17 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @include tablet {
+      gap: $mu;
+    }
+  }
+
+  .greeting {
+    display: flex;
+    flex-direction: column;
+    gap: 4 * $mu;
+    @include tablet {
+      gap: $mu;
+    }
   }
 }

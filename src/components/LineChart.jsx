@@ -39,8 +39,6 @@ function LineChartComponent({ data, dataKey }) {
         style={{
           backgroundColor: "#FF0000",
           borderRadius: "5px",
-          display: "flex",
-          justifyContent: "center",
         }}
         margin={{ left: 14, right: 14, bottom: 16 }}
       >

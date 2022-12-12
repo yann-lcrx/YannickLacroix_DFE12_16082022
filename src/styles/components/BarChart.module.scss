@@ -1,7 +1,9 @@
+@import "../variables";
+
 .header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 48px;
+  margin-bottom: 6 * $mu;
   font-weight: 500;
 }
 
@@ -11,11 +13,11 @@
   display: flex;
   justify-content: end;
   white-space: nowrap;
-  gap: 32px;
+  gap: 4 * $mu;
   li {
     font-size: 14px;
     display: flex;
-    gap: 10px;
+    gap: $mu;
   }
 }
 

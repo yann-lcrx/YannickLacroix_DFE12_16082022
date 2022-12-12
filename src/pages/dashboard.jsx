@@ -23,10 +23,10 @@ function Dashboard() {
       firstName: "",
     },
     keyData: {
-      proteinCount: "",
-      lipidCount: "",
-      carbohydrateCount: "",
-      calorieCount: "",
+      proteinCount: null,
+      lipidCount: null,
+      carbohydrateCount: null,
+      calorieCount: null,
     },
     todayScore: null,
   });
@@ -78,12 +78,14 @@ function Dashboard() {
         <p>{error}</p>
       ) : (
         <>
-          <h1>
-            Bonjour <span>{info.userInfos.firstName}</span>
-          </h1>
-          <p className={styles.feedbackMessage}>
-            Félicitations ! Vous avez explosé vos objectifs hier !
-          </p>
+          <div className={styles.greeting}>
+            <h1>
+              Bonjour <span>{info.userInfos.firstName}</span>
+            </h1>
+            <p className={styles.feedbackMessage}>
+              Félicitations ! Vous avez explosé vos objectifs hier !
+            </p>
+          </div>
 
           <div className={styles.userInfo}>
             <div className={styles.graphSection}>

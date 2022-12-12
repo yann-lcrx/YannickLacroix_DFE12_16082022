@@ -1,23 +1,24 @@
 @import "../mixins";
+@import "../variables";
 
 .DataCard {
-  padding: 32px;
+  padding: 4 * $mu;
   display: flex;
-  gap: 24px;
+  gap: 3 * $mu;
   background-color: #fbfbfb;
   border-radius: 5px;
   width: 192px;
 
   @include tablet {
     width: 160px;
-    padding: 32px 16px 32px 16px;
-    gap: 12px;
+    padding: 4 * $mu 2 * $mu 4 * $mu 4 * $mu;
+    gap: 1.5 * $mu;
   }
   > div {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 6px;
+    gap: $mu;
   }
   .figure {
     font-size: 20px;

@@ -1,15 +1,16 @@
 @import "../mixins";
+@import "../variables";
 
 .legend {
-  margin-left: 32px;
-  margin-top: 28px;
+  margin-left: 4 * $mu;
+  margin-top: 3.5 * $mu;
   font-size: 15px;
   font-weight: 500;
   color: rgb(255, 255, 255, 0.6);
   width: 147px;
   line-height: 24px;
   @include tablet {
-    margin-left: 8px;
+    margin-left: $mu;
     font-size: 12px;
   }
 }
