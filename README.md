@@ -6,6 +6,7 @@
 3. (optional) I recommend using `nvm` (https://github.com/nvm-sh/nvm/blob/master/README.md) to run the app with the correct version of NodeJS. Simply use the command `nvm use` at the root folder.
 4. Run `npm i` to install all necessary dependencies.
 5. Use `npm run start` to start the development server.
+   Note: to view the page, make sure the request params are equal to one of the users' id!
 6. Happy coding!
 
 # Working on the project
