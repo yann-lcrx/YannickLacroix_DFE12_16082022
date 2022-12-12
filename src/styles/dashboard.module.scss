@@ -2,10 +2,10 @@
 @import "mixins";
 
 .Dashboard {
-  padding: 2 * $mu;
+  padding-right: $mu;
   display: flex;
   flex-direction: column;
-  gap: 9 * $mu;
+  gap: 8 * $mu;
   @include tablet {
     gap: 5 * $mu;
   }
@@ -23,7 +23,7 @@
     display: flex;
     gap: 4 * $mu;
     @include tablet {
-      gap: 3 * $mu;
+      gap: $mu;
     }
   }
 
