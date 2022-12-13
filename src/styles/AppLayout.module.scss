@@ -35,8 +35,7 @@
   .horizontalView {
     display: flex;
     flex: 1;
-    gap: 13 * $mu;
-    @include tablet {
+    @include small-res {
       gap: 2 * $mu;
     }
     > aside {
@@ -52,7 +51,7 @@
 
       padding-top: 347px - $header-height;
 
-      @include tablet {
+      @include small-res {
         width: 88px;
         gap: 16 * $mu;
         padding-top: 219px - $header-height;
@@ -72,10 +71,13 @@
   }
 
   .view {
+    display: flex;
+    justify-content: center;
     flex: 1;
-    padding-top: 6 * $mu;
-    @include tablet {
-      padding-top: 4 * $mu;
+    padding-top: 4 * $mu;
+    padding-right: 5%;
+    @include small-res {
+      padding: 0;
     }
   }
 }

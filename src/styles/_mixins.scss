@@ -1,5 +1,5 @@
-@mixin tablet {
-  @media screen and (max-width: 1100px) {
+@mixin small-res {
+  @media screen and (max-width: 1439px) {
     @content;
   }
 }

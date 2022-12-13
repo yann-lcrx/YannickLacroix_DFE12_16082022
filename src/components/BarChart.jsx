@@ -51,7 +51,7 @@ function BarChartComponent({ data, bars }) {
   };
 
   return (
-    <ResponsiveContainer height="100%">
+    <ResponsiveContainer height={"100%"} width={"99.9%"}>
       <BarChart
         barGap={8}
         barSize={7}

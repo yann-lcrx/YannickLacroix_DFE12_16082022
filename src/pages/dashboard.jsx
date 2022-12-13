@@ -91,29 +91,37 @@ function Dashboard() {
           <div className={styles.userInfo}>
             <div className={styles.graphSection}>
               <div className={styles.mainInfo}>
-                <BarChartComponent
-                  data={activity.data}
-                  bars={[
-                    { key: "kilogram", color: "#282d30" },
-                    { key: "calories", color: "#e60000" },
-                  ]}
-                />
+                <div className={styles.mainGraphWrapper}>
+                  <div>
+                    <BarChartComponent
+                      data={activity.data}
+                      bars={[
+                        { key: "kilogram", color: "#282d30" },
+                        { key: "calories", color: "#e60000" },
+                      ]}
+                    />
+                  </div>
+                </div>
               </div>
 
               <div className={styles.secondaryInfo}>
-                <LineChartComponent
-                  data={averageSessions.data}
-                  dataKey="sessionLength"
-                />
-
-                <RadarChartComponent data={performance.data} />
-
-                <RadialBarChartComponent
-                  data={[
-                    { todayScore: 1, fill: "transparent" },
-                    { ...info, fill: "#ff0000" },
-                  ]}
-                />
+                <div className={styles.graphWrapper}>
+                  <LineChartComponent
+                    data={averageSessions.data}
+                    dataKey="sessionLength"
+                  />
+                </div>
+                <div className={styles.graphWrapper}>
+                  <RadarChartComponent data={performance.data} />
+                </div>
+                <div className={styles.graphWrapper}>
+                  <RadialBarChartComponent
+                    data={[
+                      { todayScore: 1, fill: "transparent" },
+                      { ...info, fill: "#ff0000" },
+                    ]}
+                  />
+                </div>
               </div>
             </div>
 

@@ -13,7 +13,12 @@
   font-size: 15px;
   line-height: 0px;
   position: relative;
-  bottom: 16px;
+  right: $mu;
+  bottom: 2.5 * $mu;
+  @include small-res {
+    bottom: 4px;
+    right: 2 * $mu;
+  }
 }
 
 .container {
