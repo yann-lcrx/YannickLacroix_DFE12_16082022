@@ -62,6 +62,7 @@ function Dashboard() {
           setError(
             "Nous n'avons pas pu récupérer les informations de l'utilisateur. Veuillez vérifier vos informations ou réessayer plus tard."
           );
+          setLoading(false);
         });
     } else {
       setError(
