@@ -9,7 +9,7 @@ import Performance from "../models/Performance";
  */
 async function getInfo(id) {
   const result = await fetch(
-    `http://${process.env.REACT_APP_BASE_PATH}/user/${id}`
+    `http://${process.env.REACT_APP_API_PATH}/user/${id}`
   );
   const data = await result.json();
 
@@ -23,7 +23,7 @@ async function getInfo(id) {
  */
 async function getPerformance(id) {
   const result = await fetch(
-    `http://${process.env.REACT_APP_BASE_PATH}/user/${id}/performance`
+    `http://${process.env.REACT_APP_API_PATH}/user/${id}/performance`
   );
   const data = await result.json();
 
@@ -37,7 +37,7 @@ async function getPerformance(id) {
  */
 async function getActivity(id) {
   const result = await fetch(
-    `http://${process.env.REACT_APP_BASE_PATH}/user/${id}/activity`
+    `http://${process.env.REACT_APP_API_PATH}/user/${id}/activity`
   );
   const data = await result.json();
 
@@ -51,7 +51,7 @@ async function getActivity(id) {
  */
 async function getAverageSessions(id) {
   const result = await fetch(
-    `http://${process.env.REACT_APP_BASE_PATH}/user/${id}/average-sessions`
+    `http://${process.env.REACT_APP_API_PATH}/user/${id}/average-sessions`
   );
   const data = await result.json();
 
