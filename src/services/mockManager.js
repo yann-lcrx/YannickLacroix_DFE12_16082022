@@ -10,7 +10,9 @@ async function fetchData() {
 
 async function getInfo(id) {
   const data = await fetchData();
-  const userInfos = data.userInfos.find((info) => info.data.id === id);
+  const userInfos = data.userInfos.find(
+    (info) => info.data.id.toString() === id
+  );
   if (!userInfos) {
     throw Error("user not found");
   }
@@ -21,7 +23,7 @@ async function getInfo(id) {
 async function getPerformance(id) {
   const data = await fetchData();
   const performance = data.performance.find(
-    (performance) => performance.data.userId === id
+    (performance) => performance.data.userId.toString() === id
   );
 
   if (!performance) {
@@ -34,7 +36,7 @@ async function getPerformance(id) {
 async function getActivity(id) {
   const data = await fetchData();
   const activity = data.activity.find(
-    (currentActivity) => currentActivity.data.userId === id
+    (currentActivity) => currentActivity.data.userId.toString() === id
   );
   if (!activity) {
     throw Error("user not found");
@@ -46,7 +48,7 @@ async function getActivity(id) {
 async function getAverageSessions(id) {
   const data = await fetchData();
   const averageSessions = data.averageSessions.find(
-    (session) => session.data.userId === id
+    (session) => session.data.userId.toString() === id
   );
   if (!averageSessions) {
     throw Error("user not found");
