@@ -1,5 +1,6 @@
 import Activity from "../models/Activity";
 import AverageSessions from "../models/AverageSessions";
+import UserInfo from "../models/Info";
 import Performance from "../models/Performance";
 
 async function fetchData() {
@@ -17,7 +18,7 @@ async function getInfo(id) {
     throw Error("user not found");
   }
 
-  return userInfos.data;
+  return new UserInfo(userInfos.data).data;
 }
 
 async function getPerformance(id) {

@@ -1,6 +1,7 @@
 import Activity from "../models/Activity";
 import AverageSessions from "../models/AverageSessions";
 import Performance from "../models/Performance";
+import UserInfo from "../models/Info";
 
 /**
  * Returns basic user data from API
@@ -13,7 +14,7 @@ async function getInfo(id) {
   );
   const data = await result.json();
 
-  return data.data;
+  return new UserInfo(data.data).data;
 }
 
 /**
